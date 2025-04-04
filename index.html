@@ -58,9 +58,9 @@
               <span class="author-block">
                 <a href="FIRST AUTHOR PERSONAL LINK" target="_blank">Yuxin Yao</a><sup>*</sup>,</span>
                 <span class="author-block">
-                  <a href="SECOND AUTHOR PERSONAL LINK" target="_blank">Yan Zhang</a><sup>*</sup>,</span>
+                  <a href="SECOND AUTHOR PERSONAL LINK" target="_blank">Yan Zhang</a>,</span>
                   <span class="author-block">
-                    <a href="THIRD AUTHOR PERSONAL LINK" target="_blank">Zhening Huang</a>
+                    <a href="THIRD AUTHOR PERSONAL LINK" target="_blank">Zhening Huang</a>,
                   </span>
                   <span class="author-block">
                     <a href="Fourth AUTHOR PERSONAL LINK" target="_blank">Joan Lasenby</a>
@@ -69,7 +69,7 @@
 
                   <div class="is-size-5 publication-authors">
                     <span class="author-block">Institution Name<br>Conferance name and year</span>
-                    <span class="eql-cntrb"><small><br><sup>*</sup>Indicates Equal Contribution</small></span>
+                    <!-- <span class="eql-cntrb"><small><br><sup>*</sup>Indicates Equal Contribution</small></span> -->
                   </div>
 
                   <div class="column has-text-centered">
@@ -151,7 +151,16 @@
         <h2 class="title is-3">Abstract</h2>
         <div class="content has-text-justified">
           <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin ullamcorper tellus sed ante aliquam tempus. Etiam porttitor urna feugiat nibh elementum, et tempor dolor mattis. Donec accumsan enim augue, a vulputate nisi sodales sit amet. Proin bibendum ex eget mauris cursus euismod nec et nibh. Maecenas ac gravida ante, nec cursus dui. Vivamus purus nibh, placerat ac purus eget, sagittis vestibulum metus. Sed vestibulum bibendum lectus gravida commodo. Pellentesque auctor leo vitae sagittis suscipit.
+            Dynamic videos with <strong>small baseline motions</strong> are ubiquitous in daily life, especially on social media.
+            However, these videos present a challenge to existing pose estimation frameworks due to ambiguous features, drift accumulation, and insufficient triangulation constraints.
+            Gaussian splatting, which maintains an explicit representation for scenes, provides a reliable novel view rasterization when the viewpoint change is small.
+          </p>
+          <p>
+            Inspired by this, we propose <strong>SmallGS</strong>, a camera pose estimation framework that is specifically designed for small-baseline videos. SmallGS optimizes sequential camera poses using Gaussian splatting, which reconstructs the scene from the first frame in each video segment to provide a stable reference for the rest. The temporal consistency of Gaussian splatting within limited viewpoint differences reduced the requirement of sufficient depth variations in traditional camera pose estimation.
+          </p>
+          <p>
+            We further incorporate pretrained robust visual features, e.g. DINOv2, into Gaussian splatting, where high-dimensional feature map rendering enhances the robustness of camera pose estimation. By freezing the Gaussian splatting and optimizing camera viewpoints based on rasterized features, SmallGS effectively learns camera poses without requiring explicit feature correspondences or strong parallax motion.
+            We verify the effectiveness of SmallGS in small-baseline videos in TUM-Dynamics sequences, which achieves impressive accuracy in camera pose estimation compared to MonST3R and DORID-SLAM for small-baseline videos in dynamic scenes. Data and code will be released.
           </p>
         </div>
       </div>
@@ -159,48 +168,6 @@
   </div>
 </section>
 <!-- End paper abstract -->
-
-
-<!-- Image carousel -->
-<section class="hero is-small">
-  <div class="hero-body">
-    <div class="container">
-      <div id="results-carousel" class="carousel results-carousel">
-       <div class="item">
-        <!-- Your image here -->
-        <img src="static/images/carousel1.jpg" alt="MY ALT TEXT"/>
-        <h2 class="subtitle has-text-centered">
-          First image description.
-        </h2>
-      </div>
-      <div class="item">
-        <!-- Your image here -->
-        <img src="static/images/carousel2.jpg" alt="MY ALT TEXT"/>
-        <h2 class="subtitle has-text-centered">
-          Second image description.
-        </h2>
-      </div>
-      <div class="item">
-        <!-- Your image here -->
-        <img src="static/images/carousel3.jpg" alt="MY ALT TEXT"/>
-        <h2 class="subtitle has-text-centered">
-         Third image description.
-       </h2>
-     </div>
-     <div class="item">
-      <!-- Your image here -->
-      <img src="static/images/carousel4.jpg" alt="MY ALT TEXT"/>
-      <h2 class="subtitle has-text-centered">
-        Fourth image description.
-      </h2>
-    </div>
-  </div>
-</div>
-</div>
-</section>
-<!-- End image carousel -->
-
-
 
 
 <!-- Youtube video -->
@@ -228,34 +195,74 @@
 <section class="hero is-small">
   <div class="hero-body">
     <div class="container">
-      <h2 class="title is-3">Another Carousel</h2>
-      <div id="results-carousel" class="carousel results-carousel">
-        <div class="item item-video1">
-          <video poster="" id="video1" autoplay controls muted loop height="100%">
-            <!-- Your video file here -->
-            <source src="static/videos/carousel1.mp4"
-            type="video/mp4">
-          </video>
+      <h2 class="title is-3">Result Videos</h2>
+      
+      <!-- 2x2 Grid of Videos -->
+      <div class="columns is-multiline">
+        <!-- First Row -->
+        <div class="column is-6">
+          <div class="video-container">
+            <h3 class="subtitle has-text-centered">Walking Sequence (510-539)</h3>
+            <video id="video1" controls muted loop width="100%">
+              <source src="static/videos/510_539.mp4" type="video/mp4">
+            </video>
+          </div>
         </div>
-        <div class="item item-video2">
-          <video poster="" id="video2" autoplay controls muted loop height="100%">
-            <!-- Your video file here -->
-            <source src="static/videos/carousel2.mp4"
-            type="video/mp4">
-          </video>
+        
+        <div class="column is-6">
+          <div class="video-container">
+            <h3 class="subtitle has-text-centered">Walking Sequence (30-59)</h3>
+            <video id="video2" controls muted loop width="100%">
+              <source src="static/videos/30_59.mp4" type="video/mp4">
+            </video>
+          </div>
         </div>
-        <div class="item item-video3">
-          <video poster="" id="video3" autoplay controls muted loop height="100%">\
-            <!-- Your video file here -->
-            <source src="static/videos/carousel3.mp4"
-            type="video/mp4">
-          </video>
+        
+        <!-- Second Row -->
+        <div class="column is-6">
+          <div class="video-container">
+            <h3 class="subtitle has-text-centered">Walking Sequence (180-209)</h3>
+            <video id="video3" controls muted loop width="100%">
+              <source src="static/videos/180_209.mp4" type="video/mp4">
+            </video>
+          </div>
+        </div>
+        
+        <div class="column is-6">
+          <div class="video-container">
+            <h3 class="subtitle has-text-centered">Walking Sequence (360-389)</h3>
+            <video id="video4" controls muted loop width="100%">
+              <source src="static/videos/360_389.mp4" type="video/mp4">
+            </video>
+          </div>
         </div>
       </div>
+      
+      <!-- Add custom CSS for video containers -->
+      <style>
+        .video-container {
+          background-color: #f5f5f5;
+          padding: 1rem;
+          border-radius: 8px;
+          box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+          margin-bottom: 1rem;
+        }
+        
+        .video-container video {
+          border-radius: 4px;
+          width: 100%;
+          display: block;
+        }
+        
+        .video-container h3.subtitle {
+          margin-bottom: 1rem;
+          font-weight: bold;
+        }
+      </style>
     </div>
   </div>
 </section>
-<!-- End video carousel -->
+<!-- End video grid -->
 
 
 
