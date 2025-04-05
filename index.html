@@ -24,8 +24,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
 
-  <title>Academic Project Page</title>
-  <link rel="icon" type="image/x-icon" href="static/images/favicon.ico">
+  <title>SmallGS</title>
+  <link rel="icon" type="image/x-icon" href="static/images/photo.ico">
   <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
   rel="stylesheet">
 
@@ -130,14 +130,10 @@
 <section class="hero teaser">
   <div class="container is-max-desktop">
     <div class="hero-body">
-      <video poster="" id="tree" autoplay controls muted loop height="100%">
-        <!-- Your video here -->
-        <source src="static/videos/banner_video.mp4"
-        type="video/mp4">
-      </video>
-      <h2 class="subtitle has-text-centered">
-        Aliquam vitae elit ullamcorper tellus egestas pellentesque. Ut lacus tellus, maximus vel lectus at, placerat pretium mi. Maecenas dignissim tincidunt vestibulum. Sed consequat hendrerit nisl ut maximus. 
-      </h2>
+      <img src="static/images/teaser.jpg" alt="Teaser image" style="width: 100%;">
+      <!-- <h2 class="subtitle has-text-centered"> -->
+        <!-- SmallGS: Gaussian Splatting Based Camera Pose Estimation for Small-Baseline Videos -->
+      <!-- </h2> -->
     </div>
   </div>
 </section>
@@ -170,6 +166,25 @@
 <!-- End paper abstract -->
 
 
+<!-- Pipeline video-->
+<section class="hero teaser">
+  <div class="container is-max-desktop">
+    <div class="hero-body">
+      <h2 class="subtitle has-text-centered">
+        Pipeline
+      </h2>
+      <video poster="" id="tree" autoplay controls muted loop height="100%">
+        <!-- Your video here -->
+        <source src="static/videos/pipeline.mp4"
+        type="video/mp4">
+      </video>
+    <p>
+      Our method follows the CF-3DGS pipeline, with camera poses estimated in video segments. The camera pose estimation is performed as follows: 1) Use MonST3R to predict depth maps, confidence masks, and camera intrinsic parameters. 2) Lift the depth map of the first frame in the video segment to a dense point cloud, masking dynamic objects using the corresponding confidence mask, which serve as a semantic mask. 3) Initialize Gaussian splatting and update it based on the first frame of the segment. 4) Freeze the parameters of Gaussian splatting and optimize the batched camera poses by minimizing the error between the rasterized feature maps (under the learned camera poses) and the corresponding feature maps extracted by DINOv2\cite{dinov2}. The semantic masks are applied to mask the dynamic objects for the rasterized feature maps and the corresponding feature maps.
+    </p>
+    </div>
+  </div>
+</section>
+<!-- End Pipeline video -->
 
 <!-- Video carousel -->
 <section class="hero is-small">
@@ -183,7 +198,7 @@
         <div class="column is-6">
           <div class="video-container">
             <h3 class="subtitle has-text-centered">Sequence 1</h3>
-            <video id="video1" controls muted loop width="100%">
+            <video id="video1" controls muted loop autoplay width="100%">
               <source src="static/videos/510_539_h264.mp4" type="video/mp4">
             </video>
           </div>
@@ -192,7 +207,7 @@
         <div class="column is-6">
           <div class="video-container">
             <h3 class="subtitle has-text-centered">Sequence 2</h3>
-            <video id="video2" controls muted loop width="100%">
+            <video id="video2" controls muted loop autoplay width="100%">
               <source src="static/videos/30_59_h264.mp4" type="video/mp4">
             </video>
           </div>
@@ -202,7 +217,7 @@
         <div class="column is-6">
           <div class="video-container">
             <h3 class="subtitle has-text-centered">Sequence 3</h3>
-            <video id="video3" controls muted loop width="100%">
+            <video id="video3" controls muted loop autoplay width="100%">
               <source src="static/videos/180_209_h264.mp4" type="video/mp4">
             </video>
           </div>
@@ -211,7 +226,7 @@
         <div class="column is-6">
           <div class="video-container">
             <h3 class="subtitle has-text-centered">Sequence 4</h3>
-            <video id="video4" controls muted loop width="100%">
+            <video id="video4" controls muted loop autoplay width="100%">
               <source src="static/videos/360_389_h264.mp4" type="video/mp4">
             </video>
           </div>
@@ -222,29 +237,11 @@
 
 
 
-
-
-
-<!-- Paper poster -->
-<section class="hero is-small is-light">
-  <div class="hero-body">
-    <div class="container">
-      <h2 class="title">Poster</h2>
-
-      <iframe  src="static/pdfs/sample.pdf" width="100%" height="550">
-          </iframe>
-        
-      </div>
-    </div>
-  </section>
-<!--End paper poster -->
-
-
 <!--BibTex citation -->
   <section class="section" id="BibTeX">
     <div class="container is-max-desktop content">
       <h2 class="title">BibTeX</h2>
-      <pre><code>BibTex Code Here</code></pre>
+      <pre><code>Release Soon Code Here</code></pre>
     </div>
 </section>
 <!--End BibTex citation -->
